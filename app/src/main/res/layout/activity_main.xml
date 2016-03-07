@@ -14,8 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="com.mobileappsco.training.fragmentsexercise.FragmentA"
-        android:id="@+id/fragment"
+        android:id="@+id/fragmentA"
         android:layout_gravity="center"
         tools:layout="@layout/fragment_a" />
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.mobileappsco.training.fragmentsexercise.FragmentB"
+        android:id="@+id/fragmentB"
+        android:layout_gravity="center"
+        tools:layout="@layout/fragment_b"
+        android:visibility="gone"/>
 
 </FrameLayout>

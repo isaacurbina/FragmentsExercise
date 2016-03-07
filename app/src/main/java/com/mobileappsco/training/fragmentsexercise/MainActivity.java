@@ -36,15 +36,35 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Interfa
     @Override
     public void sendTexttoB(String text) {
         Log.d("MYTAG", "MainActivity sendTexttoB() sending " + text);
+        fA = (FragmentA) getFragmentManager().findFragmentById(R.id.fragmentA);
+        fB = (FragmentB) getFragmentManager().findFragmentById(R.id.fragmentB);
         TextView textView = (TextView) fB.getActivity().findViewById(R.id.editTextB);
         textView.setText(text);
+        boolean mDualPane = getResources().getBoolean(R.bool.dual_pane);
+        if (!mDualPane) {
+            getFragmentManager()
+                    .beginTransaction()
+                    .show(fB)
+                    .hide(fA)
+                    .commit();
+        }
     }
 
     @Override
     public void sendTexttoA(String text) {
         Log.d("MYTAG", "MainActivity sendTexttoA() sending " + text);
+        fA = (FragmentA) getFragmentManager().findFragmentById(R.id.fragmentA);
+        fB = (FragmentB) getFragmentManager().findFragmentById(R.id.fragmentB);
         TextView textView = (TextView) fA.getActivity().findViewById(R.id.editTextA);
         textView.setText(text);
+        boolean mDualPane = getResources().getBoolean(R.bool.dual_pane);
+        if (!mDualPane) {
+            getFragmentManager()
+                    .beginTransaction()
+                    .show(fA)
+                    .hide(fB)
+                    .commit();
+        }
     }
 
 }
